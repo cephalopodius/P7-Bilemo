@@ -14,7 +14,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  *  itemOperations={
  *      "get",
  *      "put"={
- *          "access_control"="is_granted('ROLE_ADMIN')"
+ *          "access_control"="is_granted('ROLE_ADMIN')", "access_control"="is_granted('IS_AUTHENTICATED_FULLY')"
  *      },
  *      "delete"={
  *          "access_control"="is_granted('ROLE_ADMIN')"
