@@ -1,10 +1,9 @@
 
 # Used version for this project
 * Symfony 4.2
-* Composer 1.8.0
-* WampServer 3.1.7
-    * Apache 2.4.37
-    * PHP 7.3.1
+* WampServer 3.2.7
+    * Apache 2.4.41
+    * PHP 7.3.12
     * MySQL 5.7.24 (5.7.8 minimum : column JSON used)
 
 # API information
