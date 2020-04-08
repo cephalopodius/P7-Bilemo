@@ -3,9 +3,8 @@ easy_admin:
         # List the entity class name you want to manage
         Product:
             class: App\Entity\Product
-        Client: 
+        Customer:
+            class: App\Entity\Customer
+        Client:
             class: App\Entity\Client
-        User:
-            class: App\Entity\User
             controller: App\Controller\UserAdminController
-            
