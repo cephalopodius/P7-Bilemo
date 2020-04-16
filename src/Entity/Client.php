@@ -14,7 +14,7 @@ use ApiPlatform\Core\Annotation\ApiSubresource;
 *  @ApiResource(
 *  itemOperations={
 *      "get"={
-*      "access_control"="is_granted('ROLE_USER')"
+*      "access_control"="is_granted('ROLE_ADMIN')"
 *     },
 *      "put"={
 *          "access_control"="is_granted('ROLE_ADMIN')"
@@ -25,7 +25,7 @@ use ApiPlatform\Core\Annotation\ApiSubresource;
 *  },
 *  collectionOperations={
 *      "get"={
-*      "access_control"="is_granted('ROLE_USER')"
+*      "access_control"="is_granted('ROLE_ADMIN')"
 *       },
 *      "post"={
 *          "access_control"="is_granted('ROLE_ADMIN')"
@@ -36,6 +36,7 @@ use ApiPlatform\Core\Annotation\ApiSubresource;
 *  }
 * )
 * @ORM\Entity(repositoryClass="App\Repository\ClientRepository")
+* @ORM\EntityListeners({"App\Doctrine\ClientListener"})
 */
 class Client implements UserInterface
 {
@@ -70,7 +71,8 @@ class Client implements UserInterface
     private $password;
 
     /**
-     * @ORM\Column(type="json")
+     * @ORM\Column(type="json", nullable=false)
+     * @Assert\NotBlank
      */
     private $roles = [];
 
@@ -170,10 +172,7 @@ class Client implements UserInterface
     /**
      * @return Collection|Customer[]
      */
-    public function getCustomers(): Collection
-    {
-        return $this->customers;
-    }
+
 
     public function addCustomer(Customer $customer): self
     {
@@ -200,10 +199,7 @@ class Client implements UserInterface
     /**
      * @return Collection|Product[]
      */
-    public function getProducts(): Collection
-    {
-        return $this->products;
-    }
+
 
     public function addProduct(Product $product): self
     {
@@ -226,5 +222,9 @@ class Client implements UserInterface
         }
 
         return $this;
+    }
+    public function __toString()
+    {
+      return $this->username;
     }
 }

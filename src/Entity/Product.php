@@ -12,7 +12,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 * @ApiResource(
 *  itemOperations={
 *      "get"={
-*          "access_control"="is_granted('ROLE_USER')"
+*          "access_control"="is_granted('ROLE_ADMIN')"
 *      },
 *      "put"={
 *          "access_control"="is_granted('ROLE_ADMIN')"
@@ -23,7 +23,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 *  },
 *  collectionOperations={
 *      "get"={
-*          "access_control"="is_granted('ROLE_USER')"
+*          "access_control"="is_granted('ROLE_ADMIN')"
 *      },
 *      "post"={
 *          "access_control"="is_granted('ROLE_ADMIN')"
