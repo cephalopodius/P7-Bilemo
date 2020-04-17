@@ -71,8 +71,7 @@ class Client implements UserInterface
     private $password;
 
     /**
-     * @ORM\Column(type="json", nullable=false)
-     * @Assert\NotBlank
+     * @ORM\Column(type="json")
      */
     private $roles = [];
 
@@ -147,7 +146,7 @@ class Client implements UserInterface
 
     public function setRoles(array $Roles): self
     {
-        $this->Roles = $Roles;
+        $this->roles = $Roles;
 
         return $this;
     }
@@ -172,7 +171,10 @@ class Client implements UserInterface
     /**
      * @return Collection|Customer[]
      */
-
+     public function getCustomers()
+     {
+       return $this->customers;
+     }
 
     public function addCustomer(Customer $customer): self
     {
@@ -199,7 +201,10 @@ class Client implements UserInterface
     /**
      * @return Collection|Product[]
      */
-
+     public function getProducts()
+     {
+          return $this->products;
+     }
 
     public function addProduct(Product $product): self
     {

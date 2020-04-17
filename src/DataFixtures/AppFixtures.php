@@ -43,10 +43,10 @@ class AppFixtures extends Fixture
 
         // === Users ===
         // 10 users from Orange
-        for($i=1; $i<=10; $i++)
+        for($i=1; $i<=5; $i++)
         {
           $Customer = new Customer();
-          $client = $this->getReference('SFR');
+          $client = $this->getReference('Orange');
           $Customer->setFirstName('nickname'.$i.$client->getUserName())
               ->setLastName('family'.$i)
               ->setEmail('mail'.$i)
@@ -56,6 +56,22 @@ class AppFixtures extends Fixture
               ->setClientId($client)
           ;
           $manager->persist($Customer);
+        }
+
+        // 10 users from SFR
+        for($i=1; $i<=10; $i++)
+        {
+            $Customer = new Customer();
+            $client = $this->getReference('SFR');
+            $Customer->setFirstName('nickname'.$i.$client->getUserName())
+                ->setLastName('family'.$i)
+                ->setEmail('mail'.$i)
+                ->setCity('city'.$i)
+                ->setAddress('56 street down'.$i)
+                ->setPhoneNumber('1245789'.$i)
+                ->setClientId($client)
+            ;
+            $manager->persist($Customer);
         }
 
         // === Products ===
