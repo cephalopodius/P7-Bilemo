@@ -77,7 +77,7 @@ class Product
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\client", inversedBy="products")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      * @Groups({"read"})
      */
     private $client_id;
